@@ -21,7 +21,7 @@ A modern product showcase website built with React, Tailwind CSS, and Appwrite. 
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/thegearvault.git
+git clone https://github.com/Velstruck/the-gear-vault.git
 cd thegearvault
 ```
 
@@ -42,14 +42,3 @@ VITE_APPWRITE_BUCKET_ID=your-bucket-id
 ```bash
 npm run dev
 ```
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Acknowledgments
-
-- Built with [React](https://reactjs.org/)
-- Styled with [Tailwind CSS](https://tailwindcss.com/)
-- Backend powered by [Appwrite](https://appwrite.io/)
-- UI Components from [Headless UI](https://headlessui.dev/) 
