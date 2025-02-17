@@ -18,7 +18,7 @@ export default function AdminLogin() {
     const { success, error: loginError } = await login(email, password);
     
     if (success) {
-      navigate('/admin/add-product');
+      navigate('/');
     } else {
       setError(loginError || 'Invalid credentials. Please try again.');
     }

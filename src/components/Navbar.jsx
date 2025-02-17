@@ -1,39 +1,42 @@
 import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import logoweb from '../assets/logoweb.png'
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import { UserCircle, LogOut, PlusCircle } from 'lucide-react';
+import logoweb from '../assets/logoweb.png';
+import { Lightbulb } from 'lucide-react';
+
 export default function Navbar() {
   const { user, logout } = useAuth();
 
   return (
-    <nav className="navbar">
-      <div className="navbar-content">
-        <div className="flex-1">
-          <Link to="/" className="text-xl font-bold text-foreground hover:text-foreground/80 transition-colors">
-            <img src={logoweb} className='w-[200px] rounded-lg hover:border' />
-          </Link>
-        </div>
+    <nav className="navbar p-4 border-b border-border">
+      <div className="flex justify-between items-center">
+        <Link to="/" className="text-xl font-bold text-foreground hover:text-foreground/80 transition-colors">
+          <img src={logoweb} className='w-[200px] rounded-lg hover:border' alt="Logo" />
+        </Link>
         <div className="flex items-center gap-4">
           <button
             onClick={() => window.openSuggestionModal()}
-            className="px-4 py-2 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+            className="px-3 py-2 rounded-2xl bg-primary text-primary-foreground hover:bg-primary/90 transition-colors flex gap-1"
           >
-            Suggest Product
+            <Lightbulb/>
           </button>
           {user ? (
-            <>
-              <Link
-                to="/admin/add-product"
-                className="px-4 py-2 rounded-md bg-secondary text-secondary-foreground hover:bg-secondary/90 transition-colors"
-              >
-                Add Product
-              </Link>
-              <button
-                onClick={logout}
-                className="px-4 py-2 rounded-md bg-destructive text-destructive-foreground hover:bg-destructive/90 transition-colors"
-              >
-                Logout
-              </button>
-            </>
+            <DropdownMenu>
+              <DropdownMenuTrigger className="focus:outline-none">
+                <UserCircle className="w-8 h-8 text-foreground cursor-pointer hover:text-foreground/80" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-48">
+                <DropdownMenuItem asChild>
+                  <Link to="/admin/add-product" className="flex items-center gap-2">
+                    <PlusCircle className="w-4 h-4" /> Add Product
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={logout} className="text-destructive">
+                  <LogOut className="w-4 h-4" /> Logout
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           ) : (
             <Link
               to="/admin/login"
@@ -46,4 +49,4 @@ export default function Navbar() {
       </div>
     </nav>
   );
-} 
+}

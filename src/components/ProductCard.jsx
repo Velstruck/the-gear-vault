@@ -9,7 +9,7 @@ import { DATABASE_ID, PRODUCTS_COLLECTION_ID } from '../services/appwrite';
 import { useAutoAnimate } from '@formkit/auto-animate/react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from './ui/card';
 
-// Store Icons (Base64 or SVG)
+// Store Icons 
 const STORE_ICONS = {
   amazon: (
     <svg className="w-5 h-5" viewBox="0 0 48 48">

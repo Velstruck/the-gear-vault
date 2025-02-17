@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { account } from '../services/appwrite';
 import AdminForm from '../components/AdminForm';
+import { ArrowLeftFromLine } from 'lucide-react';
 
 export default function AddProduct() {
   const [loading, setLoading] = useState(true);
@@ -31,6 +32,9 @@ export default function AddProduct() {
 
   return (
     <div className="container py-8">
+      <Link to='/' className="text-foreground hover:text-foreground/80 transition-colors" about='Back'>
+        <ArrowLeftFromLine />
+      </Link>
       <AdminForm />
     </div>
   );

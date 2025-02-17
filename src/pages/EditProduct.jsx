@@ -3,6 +3,8 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { databases, storage } from '../services/appwrite';
 import { DATABASE_ID, PRODUCTS_COLLECTION_ID, BUCKET_ID } from '../services/appwrite';
 import { useAuth } from '../context/AuthContext';
+import { ArrowLeftFromLine } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function EditProduct() {
   const { id } = useParams();
@@ -118,9 +120,11 @@ export default function EditProduct() {
 
   return (
     <div className="container py-8">
+      <Link to='/' className="text-foreground hover:text-foreground/80 transition-colors" about='Back'>
+        <ArrowLeftFromLine />
+      </Link>
       <div className="max-w-2xl mx-auto">
         <h2 className="text-2xl font-bold mb-6">Edit Product</h2>
-
         {success && (
           <div className="mb-4 p-3 bg-green-100 text-green-700 rounded">
             Product updated successfully! Redirecting...
@@ -135,7 +139,7 @@ export default function EditProduct() {
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="name" className="block text-sm font-medium text-gray-500 mb-1">
               Product Name *
             </label>
             <input
@@ -149,7 +153,7 @@ export default function EditProduct() {
           </div>
 
           <div>
-            <label htmlFor="category" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="category" className="block text-sm font-medium text-gray-500 mb-1">
               Category *
             </label>
             <input
@@ -163,7 +167,7 @@ export default function EditProduct() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-gray-500 mb-1">
               Product Image
             </label>
             <div className="space-y-2">
@@ -196,7 +200,7 @@ export default function EditProduct() {
           </div>
 
           <div>
-            <label htmlFor="amazonUrl" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="amazonUrl" className="block text-sm font-medium text-gray-500 mb-1">
               Amazon URL
             </label>
             <input
@@ -209,7 +213,7 @@ export default function EditProduct() {
           </div>
 
           <div>
-            <label htmlFor="flipkartUrl" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="flipkartUrl" className="block text-sm font-medium text-gray-500 mb-1">
               Flipkart URL
             </label>
             <input
@@ -222,7 +226,7 @@ export default function EditProduct() {
           </div>
 
           <div>
-            <label htmlFor="otherUrl" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="otherUrl" className="block text-sm font-medium text-gray-500 mb-1">
               Other Store URL
             </label>
             <input
