@@ -4,6 +4,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { UserCircle, LogOut, PlusCircle } from 'lucide-react';
 import logoweb from '../assets/logoweb.png';
 import { Lightbulb } from 'lucide-react';
+import adminpng from '../assets/admin.png';
 
 export default function Navbar() {
   const { user, logout } = useAuth();
@@ -11,8 +12,8 @@ export default function Navbar() {
   return (
     <nav className="navbar p-4 border-b border-border">
       <div className="flex justify-between items-center">
-        <Link to="/" className="text-xl font-bold text-foreground hover:text-foreground/80 transition-colors">
-          <img src={logoweb} className='w-[200px] rounded-lg hover:border' alt="Logo" />
+        <Link to="/" className="text-xl font-bold text-foreground transition-colors">
+          <img src={logoweb} className='w-50 h-10 rounded-lg ' alt="Logo" />
         </Link>
         <div className="flex items-center gap-4">
           <button
@@ -40,9 +41,9 @@ export default function Navbar() {
           ) : (
             <Link
               to="/admin/login"
-              className="px-4 py-2 rounded-md bg-secondary text-secondary-foreground hover:bg-secondary/90 transition-colors"
+              className="px-3 py-2 rounded-2xl bg-secondary text-secondary-foreground hover:bg-secondary/90 transition-colors flex gap-1"
             >
-              Admin Login
+              <img src={adminpng} className='w-7 h-7'/> Login
             </Link>
           )}
         </div>
