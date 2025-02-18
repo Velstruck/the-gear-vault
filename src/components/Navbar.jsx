@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { UserCircle, LogOut, PlusCircle } from 'lucide-react';
 import logoweb from '../assets/logoweb.png';
 import { Lightbulb } from 'lucide-react';
@@ -33,7 +33,8 @@ export default function Navbar() {
                     <PlusCircle className="w-4 h-4" /> Add Product
                   </Link>
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={logout} className="text-destructive">
+                <DropdownMenuSeparator />
+                <DropdownMenuItem onClick={logout} className="flex items-center gap-2 text-red-600">
                   <LogOut className="w-4 h-4" /> Logout
                 </DropdownMenuItem>
               </DropdownMenuContent>
